@@ -5,6 +5,7 @@ require 'json'
 
 require_relative '../../app/api.rb'
 
+# These are the tests for ExpenseTracker
 module ExpenseTracker
   RSpec.describe 'Expense Tracker API' do
     include Rack::Test::Methods
