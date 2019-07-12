@@ -17,9 +17,17 @@ module ExpenseTracker
     it 'records submitted expenses' do
       pending 'Need to persist expenses'
 
-      coffee = post_expense('payee' => 'Starbucks', 'amount' => 5.75, 'date' => '2017-06-10')
-      zoo = post_expense('payee' => 'Zoo', 'amount' => 15.25, 'date' => '2017-06-10')
-      groceries = post_expense('payee' => 'Whole foods', 'amount' => 95.20, 'date' => '2017-06-11')
+      coffee = post_expense('payee' => 'Starbucks',
+                            'amount' => 5.75,
+                            'date' => '2017-06-10')
+      zoo = post_expense('payee' => 'Zoo',
+                         'amount' => 15.25,
+                         'date' => '2017-06-10')
+
+      # We don't need to store the grocery local variable as it is not used
+      post_expense('payee' => 'Whole foods',
+                   'amount' => 95.20,
+                   'date' => '2017-06-11')
 
       get '/expenses/2017-06-10'
       expect(last_response.status).to be(200)

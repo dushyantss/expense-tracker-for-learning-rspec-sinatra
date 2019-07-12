@@ -1,5 +1,10 @@
 Metrics/LineLength:
-  Enabled: false
+  Exclude:
+    - 'spec/spec_helper.rb'
 
 Metrics/AbcSize:
   Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
