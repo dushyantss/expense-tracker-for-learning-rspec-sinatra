@@ -7,7 +7,7 @@ require_relative '../../app/api.rb'
 
 # These are the tests for ExpenseTracker
 module ExpenseTracker
-  RSpec.describe 'Expense Tracker API' do
+  RSpec.describe 'Expense Tracker API', :db do
     include Rack::Test::Methods
 
     def app
@@ -15,8 +15,6 @@ module ExpenseTracker
     end
 
     it 'records submitted expenses' do
-      pending 'Need to persist expenses'
-
       coffee = post_expense('payee' => 'Starbucks',
                             'amount' => 5.75,
                             'date' => '2017-06-10')
@@ -41,9 +39,9 @@ module ExpenseTracker
       expect(last_response.status).to eq(200)
 
       parsed = JSON.parse(last_response.body)
-      expect(parsed).to include('customer_id' => a_kind_of(Integer))
+      expect(parsed).to include('expense_id' => a_kind_of(Integer))
 
-      expense.merge('id' => parsed['customer_id'])
+      expense.merge('id' => parsed['expense_id'])
     end
   end
 end

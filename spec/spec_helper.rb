@@ -106,4 +106,8 @@ RSpec.configure do |config|
   # filter out other gems as well. You'll have less to read, and you'll find
   # errors more quickly.
   config.filter_gems_from_backtrace 'rack', 'rack-test', 'sequel', 'sinatra'
+
+  config.when_first_matching_example_defined(:db) do
+    require_relative 'support/db'
+  end
 end

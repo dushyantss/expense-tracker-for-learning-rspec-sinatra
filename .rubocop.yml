@@ -1,3 +1,9 @@
+AllCops:
+  Exclude:
+    - 'db/development.rb'
+    - 'db/test.rb'
+    - 'db/production.rb'
+
 Metrics/LineLength:
   Exclude:
     - 'spec/spec_helper.rb'

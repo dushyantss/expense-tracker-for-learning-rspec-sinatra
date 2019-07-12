@@ -2,6 +2,11 @@
 # the `--only-failures` and `--next-failure` CLI options
 spec/examples.txt
 
+# Our databases
+db/development.rb
+db/test.rb
+db/production.rb
+
 # The editor specific files
 .vscode
 .idea
